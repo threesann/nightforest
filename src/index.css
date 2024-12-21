@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* this is basically a global css file */
+
 @font-face {
   font-family: 'fixedsys';
   src: url(/public/assets/fonts/FSEX300.woff);
@@ -10,4 +12,9 @@
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+body {
+  background-color: black;
+  height: 100%;
 }
