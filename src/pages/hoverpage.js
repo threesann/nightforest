@@ -4,8 +4,8 @@ function Hoverpage() {
     const name = "david";
 
     return (
-        <div className="w-80% m-auto bg-theme-deskblue">
-            <p>yo</p>
+        <div className="flex flex-col justify-center items-center w-4/5 h-screen m-auto bg-theme-deskblue">
+            <p className="text-4xl">yo</p>
         </div>
     );
 }
