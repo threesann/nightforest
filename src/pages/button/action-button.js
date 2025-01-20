@@ -4,7 +4,7 @@ function ActionButton({children, label, ...props}) {
     return (
         <button
           className=
-            "group relative aspect-square h-full px-2 flex items-center justify-center bg-theme-deskblue hover:bg-theme-active hover:text-white transition-colors"
+            "group relative aspect-square h-full px-2 flex items-center justify-center bg-theme-deskblue disabled:bg-theme-deskblue/50 hover:bg-theme-active hover:text-white transition-colors"
             {...props}
         >
         {children}

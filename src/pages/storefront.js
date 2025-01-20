@@ -80,7 +80,7 @@ function Storefront() {
 
       {/* button zone */}
       <div className='flex flex-col md:flex-row md:justify-between gap-2 w-full'>
-        <div className='flex grid grid-cols-6 gap-2 w-full md:w-fit h-full items-center drop-shadow-theme'>
+        <div className='flex grid grid-cols-6 gap-1 w-fit h-full items-center drop-shadow-theme'>
           <ActionButton label="look closer" onClick={() => setDiscovered(true)}>
             <img src="/assets/storefront/buttons/icon_lookcloser-alt.png" className="size-12 filter hover:invert" />
           </ActionButton>
@@ -89,8 +89,8 @@ function Storefront() {
           </ActionButton>
           <ActionButton label="+50" onClick={() => updateMoney(50)}>+50</ActionButton>
           <ActionButton label="-50" onClick={() => updateMoney(-50)}>-50</ActionButton> 
-          <ActionButton label="speak" onClick={() => displayText("hello there, "+name+".", 100)}>speak</ActionButton>
-          <ActionButton label="dialogue" onClick={() => shopIntro()}>dialogue</ActionButton>
+          <ActionButton label="speak" disabled={showTextbox} onClick={() => displayText("hello there, "+name+".", 100)}>speak</ActionButton>
+          <ActionButton label="dialogue" disabled={showTextbox} onClick={() => shopIntro()}>:3</ActionButton>
         </div>
         <div className="flex flex-row gap-2 items-center">
           <p className="text-theme-deskblue text-4xl">{name}</p>
