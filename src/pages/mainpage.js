@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
+import Storefront from "./rooms/storefront";
+
 import ActionButton from "./button/action-button";
 
-function Storefront() {
+function Mainpage() {
   const [discovered, setDiscovered] = useState(false);
+  const [currentLocation, setCurrentLocation] = useState("storefront");
   const [money, setMoney] = useState(0);
   const [showTextbox, setShowTextbox] = useState(false);
 
@@ -64,18 +67,13 @@ function Storefront() {
   return (
     <div className='flex flex-col gap-2 items-center justify-center w-4/5 h-screen m-auto'> {/* central column */}
       <div className='flex w-full justify-center h-16'>
-        <h1 className='text-theme-deskblue drop-shadow-theme md:text-7xl text-6xl'>{discovered ? "storefront" : "??????"}</h1>
+        <h1 className='text-theme-deskblue drop-shadow-theme md:text-7xl text-6xl'>{discovered ? currentLocation : "??????"}</h1>
       </div>
-      {/* image zone */}
+      {/* display content zone */}
       <div className='grid border-4 border-theme-deskblue drop-shadow-theme'> 
-        <img src="/assets/storefront/desk-larger.png" alt="black" className='row-start-1 col-start-1 w-full h-full'/>
-        <img src="/assets/storefront/bushes-larger.png" alt="bushes" className='row-start-1 col-start-1 w-full h-full' />
-        <img src="/assets/storefront/empty_shelves-larger.png" alt="shelves" className='row-start-1 col-start-1 w-full h-full' />
-        <img src="/assets/storefront/shelf_jar-larger.gif" alt="jar" className='row-start-1 col-start-1 w-full h-full' />
-        <div className='flex justify-start absolute right-2 top-2 gap-2 px-4 py-2 bg-black border-4 border-theme-deskblue w-fit'> {/* money box */}
-          <img src="/assets/coin_placeholder.png" alt="money" className='md:size-7 size-6'/>
-          <span className='text-white text-xl'>{money}</span>
-        </div>
+        {currentLocation === "storefront" &&
+          <Storefront money={money} />
+        }
       </div>
 
       {/* button zone */}
@@ -110,7 +108,7 @@ function Storefront() {
       {showTextbox && 
         <div className="textbox flex justify-between absolute bottom-20 md:w-3/5 w-4/5 h-1/5 p-2 border-4 border-theme-deskblue bg-black hover:cursor-pointer">
           <span className='text-white text-2xl'>{textboxContent}</span>
-          {showBlinker && <span className="text-white text-2xl place-self-end">{">"}</span>}
+          {showBlinker && <img src="/assets/blinker.gif" className="place-self-end size-7" />}
         </div>
       }
     </div>
@@ -118,4 +116,4 @@ function Storefront() {
   );
 }
 
-export default Storefront;
+export default Mainpage;
